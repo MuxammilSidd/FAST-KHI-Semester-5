@@ -212,6 +212,7 @@ pata chale toh mujhe bhi bata dena pls
 ---
 ### 📌 Computer Networks:
 🔗 Useful Youtube Playlists:
+- [Computer Networking Book Playlist](https://youtube.com/playlist?list=PLByK_3hwzY3Tysh-SY9MKZhMm9wIfNOas&feature=shared) - Videos for Chapter 1 to Chapter 9 (all chapters) of Jim Kurose's book, Computer Networking: A Top-Down Approach
 - [Computer Networks by Gate Smashers](https://www.youtube.com/watch?v=JFF2vJaN0Cw&list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_)
 - [Computer Networks by Neso Academy](https://www.youtube.com/watch?v=VwN91x5i25g&list=PLBlnK6fEyqRgMCUAG0XRw78UA8qnv6jEx)
 

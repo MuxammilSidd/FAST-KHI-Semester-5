@@ -1,0 +1,248 @@
+23K-2001 Muzammil BCS-5J
+DBS Assignment01 Q2 & Q3
+
+Q2:
+
+1. Database Design using DDL
+
+CREATE TABLE Members (
+  MemberID INT PRIMARY KEY,
+  Name VARCHAR(50) NOT NULL,
+  Email VARCHAR(50) UNIQUE,
+  JoinDate DATE DEFAULT CURRENT_DATE
+);
+
+CREATE TABLE Books (
+  BookID INT PRIMARY KEY,
+  Title VARCHAR(100) NOT NULL,
+  Author VARCHAR(50),
+  CopiesAvailable INT CHECK (CopiesAvailable >= 0)
+);
+
+CREATE TABLE IssuedBooks (
+  IssueID INT PRIMARY KEY,
+  MemberID INT,
+  BookID INT,
+  IssueDate DATE DEFAULT CURRENT_DATE,
+  ReturnDate DATE,
+  FOREIGN KEY (MemberID) REFERENCES Members(MemberID),
+  FOREIGN KEY (BookID) REFERENCES Books(BookID)
+);
+
+2. Database Catalog Design
+
+| Table       | Column          | Type         | Constraints                              |
+|-------------|-----------------|--------------|------------------------------------------|
+| Members     | MemberID        | INT          | PRIMARY KEY                              |
+|             | Name            | VARCHAR(50)  | NOT NULL                                 |
+|             | Email           | VARCHAR(50)  | UNIQUE                                   |
+|             | JoinDate        | DATE         | DEFAULT CURRENT_DATE                     |
+| Books       | BookID          | INT          | PRIMARY KEY                              |
+|             | Title           | VARCHAR(100) | NOT NULL                                 |
+|             | Author          | VARCHAR(50)  |                                          |
+|             | CopiesAvailable | INT          | CHECK (CopiesAvailable >= 0)             |
+| IssuedBooks | IssueID         | INT          | PRIMARY KEY                              |
+|             | MemberID        | INT          | FOREIGN KEY → Members(MemberID)          |
+|             | BookID          | INT          | FOREIGN KEY → Books(BookID)              |
+|             | IssueDate       | DATE         | DEFAULT CURRENT_DATE                     |
+|             | ReturnDate      | DATE         |                                          |
+
+3. DML Queries for Daily Operations
+
+	a. Insert at least 3 Members and 3 Books
+INSERT INTO Members VALUES (1, 'Ali Khan', 'ali@email.com', DEFAULT);
+INSERT INTO Members VALUES (2, 'Sara Ahmed', 'sara@email.com', DEFAULT);
+INSERT INTO Members VALUES (3, 'Usman Iqbal', 'usman@email.com', DEFAULT);
+
+INSERT INTO Books VALUES (101, 'Database Systems', 'Elmasri', 5);
+INSERT INTO Books VALUES (102, 'Operating Systems', 'Silberschatz', 3);
+INSERT INTO Books VALUES (103, 'Computer Networks', 'Tanenbaum', 4);
+
+	b. Record the issuance of a book and update copies
+INSERT INTO IssuedBooks VALUES (1, 1, 101, DEFAULT, NULL);
+UPDATE Books SET CopiesAvailable = CopiesAvailable - 1 WHERE BookID = 101;
+
+	c. Display names of all members and their issued books (JOIN)
+SELECT Members.Name, Books.Title
+FROM Members
+JOIN IssuedBooks ON Members.MemberID = IssuedBooks.MemberID
+JOIN Books ON IssuedBooks.BookID = Books.BookID;
+
+4. Constraint Violation Demonstration
+
+	a. Key Constraint Violation
+INSERT INTO Members VALUES (1, 'Duplicate', 'dup@email.com', DEFAULT);
+
+	b. Referential Integrity Violation
+INSERT INTO IssuedBooks VALUES (2, 99, 101, DEFAULT, NULL);
+
+	c. Check Constraint Violation
+INSERT INTO Books VALUES (104, 'AI Basics', 'Russell', -5);
+
+5. Possible Improvements:
+	- Add a Reservations table so members can reserve books.
+	- Add Fine Management to handle overdue books.
+
+6. Nested Queries
+
+	a. Find Members with No Issued Books
+SELECT Name
+FROM Members
+WHERE MemberID NOT IN (SELECT MemberID FROM IssuedBooks);
+
+	b. Find Books with Highest Copies
+SELECT Title
+FROM Books
+WHERE CopiesAvailable = (SELECT MAX(CopiesAvailable) FROM Books);
+
+	c. Find the Most Active Member (issued most books)
+SELECT MemberID
+FROM IssuedBooks
+GROUP BY MemberID
+ORDER BY COUNT(*) DESC
+LIMIT 1;
+
+	d. Find the Books Not Issued
+SELECT Title
+FROM Books
+WHERE BookID NOT IN (SELECT BookID FROM IssuedBooks);
+
+	e. Members with Books Overdue (ReturnDate NULL & >30 days ago)
+SELECT MemberID
+FROM IssuedBooks
+WHERE ReturnDate IS NULL
+AND IssueDate < CURRENT_DATE - INTERVAL '30' DAY;
+
+
+Q3:
+
+1. DDL Queries
+
+CREATE TABLE Patient (
+  Patient_ID INT PRIMARY KEY,
+  Name VARCHAR(50) NOT NULL,
+  Gender CHAR(1) CHECK (Gender IN ('M','F')),
+  DOB DATE,
+  Email VARCHAR(50) UNIQUE,
+  Phone VARCHAR(15),
+  Address VARCHAR(100),
+  Username VARCHAR(30),
+  Password VARCHAR(30)
+);
+
+CREATE TABLE Doctor (
+  Doctor_ID INT PRIMARY KEY,
+  Name VARCHAR(50) NOT NULL,
+  Specialization VARCHAR(50),
+  Username VARCHAR(30),
+  Password VARCHAR(30)
+);
+
+CREATE TABLE Appointment (
+  Appointment_ID INT PRIMARY KEY,
+  Appointment_Date DATE,
+  Appointment_Time TIME,
+  Status VARCHAR(20),
+  Clinic_Number INT,
+  Patient_ID INT,
+  Doctor_ID INT,
+  FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
+  FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID)
+);
+
+CREATE TABLE Prescription (
+  Prescription_ID INT PRIMARY KEY,
+  Date DATE,
+  Doctor_Advice VARCHAR(200),
+  Followup_Required VARCHAR(5),
+  Patient_ID INT,
+  Doctor_ID INT,
+  FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID),
+  FOREIGN KEY (Doctor_ID) REFERENCES Doctor(Doctor_ID)
+);
+
+CREATE TABLE Invoice (
+  Invoice_ID INT PRIMARY KEY,
+  Invoice_Date DATE,
+  Amount DECIMAL(10,2),
+  Payment_Status VARCHAR(20),
+  Payment_Method VARCHAR(20),
+  Patient_ID INT,
+  FOREIGN KEY (Patient_ID) REFERENCES Patient(Patient_ID)
+);
+
+CREATE TABLE Tests (
+  Test_ID INT PRIMARY KEY,
+  Blood_Test VARCHAR(10),
+  X_Ray VARCHAR(10),
+  MRI VARCHAR(10),
+  CT_Scan VARCHAR(10)
+);
+
+2. DML Queries
+
+	a) Update phone number and email of a patient
+UPDATE Patient
+SET Phone = '03001234567', Email = 'newemail@email.com'
+WHERE Patient_ID = 1;
+
+	b) Update invoice status from “Unpaid” to “Paid”
+UPDATE Invoice
+SET Payment_Status = 'Paid'
+WHERE Invoice_ID = 101 AND Payment_Status = 'Unpaid';
+
+	c) Delete all cancelled appointments
+DELETE FROM Appointment
+WHERE Status = 'Cancelled';
+
+	d) Delete invoice for a refunded patient
+DELETE FROM Invoice
+WHERE Patient_ID = 2;
+
+	e) Select all appointments that are still “Booked”
+SELECT * FROM Appointment
+WHERE Status = 'Booked';
+
+	f) Select all invoices that are “Unpaid”
+SELECT * FROM Invoice
+WHERE Payment_Status = 'Unpaid';
+
+	g) Select all lab tests of type “Blood Test”
+SELECT * FROM Tests
+WHERE Blood_Test IS NOT NULL;
+
+	h) Select all prescriptions issued on '2025-09-02'
+SELECT * FROM Prescription
+WHERE Date = '2025-09-02';
+
+3. Advance SQL
+
+	a) Show all patients with their doctors booked
+SELECT Patient.Name AS PatientName, Doctor.Name AS DoctorName
+FROM Appointment
+JOIN Patient ON Appointment.Patient_ID = Patient.Patient_ID
+JOIN Doctor ON Appointment.Doctor_ID = Doctor.Doctor_ID
+WHERE Appointment.Status = 'Booked';
+
+	b) Show all lab tests of patients and the doctor who requested them
+Assuming that Tests are linked through Prescription with Patient + Doctor.
+
+SELECT Patient.Name AS PatientName, Doctor.Name AS DoctorName, Tests.*
+FROM Tests
+JOIN Prescription ON Prescription.Patient_ID = Patient.Patient_ID
+JOIN Patient ON Prescription.Patient_ID = Patient.Patient_ID
+JOIN Doctor ON Prescription.Doctor_ID = Doctor.Doctor_ID;
+
+	c) Show prescriptions with medicines only for patients named “Ali Khan”
+SELECT Prescription.*
+FROM Prescription
+JOIN Patient ON Prescription.Patient_ID = Patient.Patient_ID
+WHERE Patient.Name = 'Ali Khan';
+
+	d) Show prescriptions with doctors where follow-up is required
+SELECT Prescription.Prescription_ID, Patient.Name AS PatientName, Doctor.Name AS DoctorName
+FROM Prescription
+JOIN Patient ON Prescription.Patient_ID = Patient.Patient_ID
+JOIN Doctor ON Prescription.Doctor_ID = Doctor.Doctor_ID
+WHERE Prescription.Followup_Required = 'Yes';
+
