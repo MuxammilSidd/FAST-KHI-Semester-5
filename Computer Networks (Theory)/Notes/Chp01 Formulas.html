@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Network Performance Formulas</title>
+    <style>
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        h1, h2, h3 { color: #333; }
+        .formula { background-color: #f4f4f4; border-left: 5px solid #007BFF; padding: 15px; margin: 20px 0; font-size: 1.2em; }
+        .explanation, .example { margin-top: 15px; }
+        code { background-color: #eee; padding: 2px 5px; border-radius: 3px; }
+    </style>
+</head>
+<body>
+
+    <h1>Mathematical Models for Network Performance</h1>
+    <p>Based on excerpts from Chapter 1, "Computer Networks and the Internet," this document details the key mathematical models and formulas used to analyze delay, loss, and throughput in packet-switched networks.</p>
+
+    <hr>
+
+    <h2>1. Total Nodal Delay</h2>
+    <div class="formula">
+        <code>d<sub>nodal</sub> = d<sub>proc</sub> + d<sub>queue</sub> + d<sub>trans</sub> + d<sub>prop</sub></code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>The total time a packet spends at a single network node (like a router) is the sum of four distinct types of delays. These are:</p>
+        <ul>
+            <li><strong>Processing Delay (d<sub>proc</sub>):</strong> The time it takes for the router to examine the packet's header, check for bit-level errors, and determine the packet's destination. This is typically in the range of microseconds or less in modern high-speed routers.</li>
+            <li><strong>Queuing Delay (d<sub>queue</sub>):</strong> The time the packet spends waiting in a queue (or buffer) before it can be transmitted onto the outgoing link. This delay is variable and depends on the network's congestion level.</li>
+            <li><strong>Transmission Delay (d<sub>trans</sub>):</strong> The time required to push all of the packet's bits onto the communication link. It's a function of the packet's size and the link's speed, not the distance it has to travel.</li>
+            <li><strong>Propagation Delay (d<sub>prop</sub>):</strong> The time it takes for a bit to travel from the beginning to the end of the link. This is dependent on the physical distance of the link and the propagation speed of the medium (close to the speed of light).</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>Imagine a packet arriving at a router. The router takes 10 microseconds (μs) to process the header (d<sub>proc</sub>). The network is busy, so the packet waits in a queue for 500 μs (d<sub>queue</sub>). The packet is 1500 bytes long and is being sent over a 100 Mbps link, so its transmission delay is 120 μs (d<sub>trans</sub>). The next router is 100 km away over a fiber-optic cable, resulting in a propagation delay of 500 μs (d<sub>prop</sub>).</p>
+        <p>The total nodal delay would be: <code>10 μs + 500 μs + 120 μs + 500 μs = 1130 μs</code> or 1.13 milliseconds.</p>
+    </div>
+
+    <hr>
+
+    <h2>2. Transmission Delay</h2>
+    <div class="formula">
+        <code>d<sub>trans</sub> = L / R</code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>Transmission delay is the time it takes to place a packet onto the network link. It is calculated by dividing the packet's length (L), measured in bits, by the transmission rate of the link (R), measured in bits per second (bps).</p>
+        <ul>
+            <li><code>L</code>: Length of the packet in bits.</li>
+            <li><code>R</code>: Transmission rate of the link (bandwidth) in bits per second.</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>If you want to send a packet of 1,500 bytes over a 100 Megabits per second (Mbps) Ethernet link:</p>
+        <ul>
+            <li>First, convert the packet length to bits: <code>1,500 bytes * 8 bits/byte = 12,000 bits</code>.</li>
+            <li>The link rate is <code>100,000,000 bits per second</code>.</li>
+        </ul>
+        <p>The transmission delay is: <code>d<sub>trans</sub> = 12,000 bits / 100,000,000 bps = 0.00012 seconds</code>, or 0.12 milliseconds.</p>
+    </div>
+
+    <hr>
+
+    <h2>3. Total End-to-End Delay (Conceptual Basis)</h2>
+    <div class="formula">
+        <code>d<sub>end-to-end</sub> = N * (d<sub>proc</sub> + d<sub>prop</sub>) + L / R</code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>This formula provides a simplified model for the total time it takes for a single packet to travel from a source to a destination across a network with N links, assuming no queuing delay. It sums the processing and propagation delays for each of the N links and adds the single transmission delay for the packet. This specific formula assumes homogenous links where processing, propagation, and transmission rates are the same across the network.</p>
+        <ul>
+            <li><code>N</code>: Number of links between the source and destination.</li>
+            <li><code>d<sub>proc</sub></code>: Processing delay at each node.</li>
+            <li><code>d<sub>prop</sub></code>: Propagation delay on each link.</li>
+            <li><code>L</code>: Length of the packet in bits.</li>
+            <li><code>R</code>: Transmission rate of the links in bits per second.</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>Consider a packet of 1,000 bytes traversing a path with 3 links (N=3). The processing delay at each router is 5 μs, and the propagation delay for each link is 20 μs. The packet size is 8,000 bits (1000 bytes * 8), and the link speed is 1 Gbps (1,000,000,000 bps).</p>
+        <p>First, calculate the transmission delay: <code>8,000 bits / 1,000,000,000 bps = 8 μs</code>.</p>
+        <p>Now, calculate the end-to-end delay: <code>d<sub>end-to-end</sub> = 3 * (5 μs + 20 μs) + 8 μs = 3 * (25 μs) + 8 μs = 75 μs + 8 μs = 83 μs</code>.</p>
+    </div>
+
+    <hr>
+
+    <h2>4. Time to Transfer Multiple Packets</h2>
+    <div class="formula">
+        <code>Total Time = 4 * L / R  (for P=3 packets, 2 links)</code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>This specific case illustrates the time required to send 3 packets from a source to a destination through a single router (which involves 2 links). The formula highlights the pipelining nature of packet switching. The first packet's journey takes time, but subsequent packets follow closely behind. The generalized concept for sending P packets over N links often involves a formula structure of (P + N - 1) * (L/R) under certain assumptions. The provided formula (4 * L/R) for 3 packets over 2 links aligns with the simplified scenario where N=2 and P=3, resulting in (3+2-1) = 4 terms of L/R in some models.</p>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>If a source sends 3 packets of 1,000 bytes each (L = 8,000 bits) over a path with one router and a uniform link speed of 10 Mbps (R = 10,000,000 bps):</p>
+        <p>The time to transmit one packet is <code>L / R = 8,000 / 10,000,000 = 0.0008 seconds</code>.</p>
+        <p>Using the provided formula, the total time is: <code>Total Time = 4 * 0.0008 seconds = 0.0032 seconds</code>, or 3.2 milliseconds.</p>
+    </div>
+
+    <hr>
+    
+    <h2>5. Traffic Intensity</h2>
+    <div class="formula">
+        <code>I = L * a / R</code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>Traffic intensity is a measure used to gauge how congested a network link is. It is the ratio of the rate at which data arrives to the rate at which data can be transmitted. For a stable system where the queue does not grow infinitely, the traffic intensity must be less than 1. When I > 1, the queue will grow without bound, leading to packet loss.</p>
+        <ul>
+            <li><code>L</code>: Average packet length in bits.</li>
+            <li><code>a</code>: Average packet arrival rate in packets per second.</li>
+            <li><code>R</code>: Link transmission rate in bits per second.</li>
+        </ul>
+        <p>The term <code>L*a</code> represents the average rate at which bits arrive at the queue.</p>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>Consider a link with a transmission rate (R) of 1 Mbps. Packets with an average length (L) of 1,000 bits arrive at an average rate (a) of 800 packets per second.</p>
+        <p>The traffic intensity is: <code>I = (1,000 bits/packet * 800 packets/sec) / 1,000,000 bits/sec = 800,000 / 1,000,000 = 0.8</code>.</p>
+        <p>Since I is 0.8 (which is less than 1), the link can handle the traffic on average, although temporary queuing may occur. If the arrival rate increased to 1,200 packets per second, the intensity would become 1.2, and the queue would grow indefinitely.</p>
+    </div>
+
+    <hr>
+
+    <h2>6. Queuing Delay Model</h2>
+    <div class="formula">
+        <code>d<sub>queue</sub> = (I * (L/R)) / (1 - I)  (for I < 1)</code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>This formula provides an estimate for the average queuing delay under certain theoretical conditions (specifically, for an M/M/1 queue, which assumes random packet arrivals and service times). The formula shows that as traffic intensity (I) approaches 1, the queuing delay approaches infinity. This model is crucial for understanding how network performance degrades rapidly as a link nears its full capacity.</p>
+        <ul>
+            <li><code>I</code>: Traffic Intensity (must be less than 1).</li>
+            <li><code>L/R</code>: The transmission delay of a single packet.</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>Using the previous example where I = 0.8 and the transmission delay (L/R) is <code>1,000 bits / 1,000,000 bps = 0.001 seconds</code>:</p>
+        <p>The average queuing delay is: <code>d<sub>queue</sub> = (0.8 * 0.001) / (1 - 0.8) = 0.0008 / 0.2 = 0.004 seconds</code>, or 4 milliseconds.</p>
+        <p>If the traffic intensity increases to I = 0.95, the delay becomes: <code>d<sub>queue</sub> = (0.95 * 0.001) / (1 - 0.95) = 0.00095 / 0.05 = 0.019 seconds</code>, or 19 milliseconds, showing a significant increase.</p>
+    </div>
+
+    <hr>
+
+    <h2>7. Bandwidth-Delay Product</h2>
+    <div class="formula">
+        <code>Bandwidth-Delay Product = R * d<sub>prop</sub></code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>The bandwidth-delay product estimates the maximum number of bits that can be "in flight" on a network link at any given time—data that has been sent but not yet acknowledged. It represents the volume of the "pipe" connecting two points. This metric is particularly important for performance tuning, especially in networks with high bandwidth and long delays (known as "Long Fat Networks" or LFNs), as it helps determine optimal buffer sizes and TCP window sizes.</p>
+        <ul>
+            <li><code>R</code>: Link rate in bits per second.</li>
+            <li><code>d<sub>prop</sub></code>: Propagation delay in seconds (often, the round-trip time is used for d<sub>prop</sub> in practical applications like TCP window sizing).</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>Consider a geostationary satellite link with a bandwidth (R) of 100 Mbps and a round-trip propagation delay (d<sub>prop</sub>) of 500 milliseconds (0.5 seconds).</p>
+        <p>The bandwidth-delay product is: <code>100,000,000 bits/sec * 0.5 sec = 50,000,000 bits</code>.</p>
+        <p>This means that 50 million bits (or 6.25 megabytes) of data can be in transit on the link at any moment. To fully utilize this link, the sender would need to be able to send this much data before stopping to wait for an acknowledgment.</p>
+    </div>
+
+    <hr>
+
+    <h2>8. Throughput (M Simultaneous Downloads)</h2>
+    <div class="formula">
+        <code>Throughput = min{R<sub>s</sub>, R<sub>c</sub>, R/M}</code>
+    </div>
+    <div class="explanation">
+        <h3>Explanation</h3>
+        <p>This formula determines the per-download throughput in a scenario where multiple (M) clients are downloading from a server, and they all share a common bottleneck link. The overall performance for each download is limited by the slowest part of its end-to-end path. The throughput will be the minimum of the server's upload speed, the client's download speed, or the share of the common link's bandwidth.</p>
+        <ul>
+            <li><code>R<sub>s</sub></code>: The transmission rate of the server's access link.</li>
+            <li><code>R<sub>c</sub></code>: The transmission rate of the client's access link.</li>
+            <li><code>R</code>: The transmission rate of the shared link.</li>
+            <li><code>M</code>: The number of simultaneous downloads.</li>
+        </ul>
+    </div>
+    <div class="example">
+        <h3>Example</h3>
+        <p>A server has a 100 Mbps connection (R<sub>s</sub>). There are 10 clients (M=10), each with a 20 Mbps connection (R<sub>c</sub>). They are all downloading simultaneously and share a common network link with a total capacity of 50 Mbps (R).</p>
+        <p>The throughput for each client will be the minimum of:</p>
+        <ul>
+            <li>The server's link rate: <code>100 Mbps</code></li>
+            <li>The client's link rate: <code>20 Mbps</code></li>
+            <li>The shared portion of the common link: <code>50 Mbps / 10 = 5 Mbps</code></li>
+        </ul>
+        <p>In this case, <code>Throughput = min{100, 20, 5} = 5 Mbps</code>. The shared link is the bottleneck, and each user gets 5 Mbps of throughput for their download.</p>
+    </div>
+
+</body>
+</html>
