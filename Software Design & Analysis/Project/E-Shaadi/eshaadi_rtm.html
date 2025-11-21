@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shaadi RTM</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .filters {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .filter-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .filter-group label {
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .filter-group select, .filter-group input {
+            padding: 8px 12px;
+            border: 2px solid #dee2e6;
+            border-radius: 6px;
+            font-size: 14px;
+            background: white;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .filter-group select:hover, .filter-group input:hover {
+            border-color: #667eea;
+        }
+        
+        .filter-group select:focus, .filter-group input:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .stats {
+            padding: 20px 30px;
+            background: #fff;
+            border-bottom: 2px solid #e9ecef;
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .stat-label {
+            font-weight: 600;
+            color: #6c757d;
+        }
+        
+        .stat-value {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+            padding: 20px 30px;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        th {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 10px;
+            text-align: left;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border: 1px solid #5a67d8;
+        }
+        
+        td {
+            padding: 12px 10px;
+            border: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        
+        tr:hover {
+            background-color: #e7f1ff;
+            transition: background-color 0.2s;
+        }
+        
+        .req-id {
+            font-weight: bold;
+            color: #667eea;
+            white-space: nowrap;
+        }
+        
+        .priority-high {
+            background-color: #dc3545;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .priority-medium {
+            background-color: #ffc107;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .priority-low {
+            background-color: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .status-implemented {
+            background-color: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .status-pending {
+            background-color: #ffc107;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .status-planned {
+            background-color: #17a2b8;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+            display: inline-block;
+        }
+        
+        .use-case-tag {
+            background-color: #e7f1ff;
+            color: #004085;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .diagram-ref {
+            background-color: #d1ecf1;
+            color: #0c5460;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-size: 11px;
+            display: inline-block;
+            margin: 2px;
+        }
+        
+        .hidden {
+            display: none;
+        }
+        
+        .export-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .export-btn:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .footer {
+            padding: 20px 30px;
+            background: #f8f9fa;
+            border-top: 2px solid #e9ecef;
+            text-align: center;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>📋 E-Shaadi Requirements Traceability Matrix</h1>
+            <p>Software Design and Analysis Project | Section 5J</p>
+            <p style="font-size: 0.9em; margin-top: 5px;">Group: Muzammil Siddiqui, Rayyan Ali, Haseeb Asif, Azaan Hussain, Ahmed Ali</p>
+        </div>
+        
+        <div class="filters">
+            <div class="filter-group">
+                <label for="moduleFilter">Module:</label>
+                <select id="moduleFilter">
+                    <option value="all">All Modules</option>
+                    <option value="Authentication">Authentication</option>
+                    <option value="Profile Management">Profile Management</option>
+                    <option value="Search & Filter">Search & Filter</option>
+                    <option value="Matching Engine">Matching Engine</option>
+                    <option value="Communication">Communication</option>
+                    <option value="Notifications">Notifications</option>
+                    <option value="Admin Panel">Admin Panel</option>
+                    <option value="Payment">Payment</option>
+                    <option value="Verification">Verification</option>
+                    <option value="Virtual Meeting">Virtual Meeting</option>
+                    <option value="AI Compatibility">AI Compatibility</option>
+                    <option value="Guardian Dashboard">Guardian Dashboard</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="priorityFilter">Priority:</label>
+                <select id="priorityFilter">
+                    <option value="all">All Priorities</option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="statusFilter">Status:</label>
+                <select id="statusFilter">
+                    <option value="all">All Status</option>
+                    <option value="Implemented">Implemented</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Planned">Planned</option>
+                </select>
+            </div>
+            
+            <div class="filter-group">
+                <label for="searchBox">Search:</label>
+                <input type="text" id="searchBox" placeholder="Search requirements...">
+            </div>
+            
+            <button class="export-btn" onclick="exportToCSV()">📥 Export to CSV</button>
+        </div>
+        
+        <div class="stats">
+            <div class="stat-item">
+                <span class="stat-label">Total Requirements:</span>
+                <span class="stat-value" id="totalReqs">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Displayed:</span>
+                <span class="stat-value" id="displayedReqs">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">High Priority:</span>
+                <span class="stat-value" id="highPriority">0</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-label">Coverage:</span>
+                <span class="stat-value" id="coverage">100%</span>
+            </div>
+        </div>
+        
+        <div class="table-container">
+            <table id="rtmTable">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">Req ID</th>
+                        <th style="width: 150px;">Module</th>
+                        <th style="width: 250px;">Requirement Description</th>
+                        <th style="width: 200px;">Use Case(s)</th>
+                        <th style="width: 150px;">Diagram Reference</th>
+                        <th style="width: 100px;">Priority</th>
+                        <th style="width: 100px;">Status</th>
+                        <th style="width: 200px;">Test Scenario</th>
+                    </tr>
+                </thead>
+                <tbody id="rtmBody">
+                    <!-- Data will be populated by JavaScript -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="footer">
+            <p><strong>Document Version:</strong> 1.0 | <strong>Last Updated:</strong> November 2024</p>
+            <p style="margin-top: 10px; font-size: 0.9em;">This RTM ensures complete traceability from requirements through design to testing</p>
+        </div>
+    </div>
+
+    <script>
+        const requirements = [
+            // Authentication & Authorization
+            { id: "REQ-001", module: "Authentication", description: "User must be able to register using email/phone with OTP verification", useCases: ["Sign Up", "Log In"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Verify OTP sent and account created successfully" },
+            { id: "REQ-002", module: "Authentication", description: "System must support role-based access control (Individual, Guardian, Admin, Matchmaker)", useCases: ["Sign Up", "Manage Own Profile"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Test different user roles have appropriate access" },
+            { id: "REQ-003", module: "Authentication", description: "User must verify email/phone before accessing full features", useCases: ["Verify Identities", "Log In"], diagram: "Main Use Case, Verification", priority: "High", status: "Implemented", testScenario: "Attempt login without verification" },
+            
+            // Profile Management
+            { id: "REQ-004", module: "Profile Management", description: "User must create profile with mandatory fields: name, age, gender, city, religion", useCases: ["Manage Own Profile"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Submit profile with missing mandatory fields" },
+            { id: "REQ-005", module: "Profile Management", description: "User can add optional fields: education, profession, hobbies, future plans, family details", useCases: ["Manage Own Profile"], diagram: "Main Use Case", priority: "Medium", status: "Implemented", testScenario: "Add and edit optional profile fields" },
+            { id: "REQ-006", module: "Profile Management", description: "User can upload multiple photos with privacy controls", useCases: ["Manage Own Profile", "Manage Privacy Settings"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Upload photos and set visibility controls" },
+            { id: "REQ-007", module: "Profile Management", description: "User can set privacy settings for photos and contact information", useCases: ["Manage Privacy Settings"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Verify privacy settings restrict unauthorized access" },
+            { id: "REQ-008", module: "Profile Management", description: "Guardian can create and manage profiles for family members", useCases: ["Manage Dependant's Profile", "Manage Multiple Profiles"], diagram: "Main Use Case, Guardian Dashboard", priority: "High", status: "Implemented", testScenario: "Guardian creates profile for dependent" },
+            
+            // Search & Filter
+            { id: "REQ-009", module: "Search & Filter", description: "User can perform basic search by age, city, religion, education", useCases: ["Search & Filter Matches"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Search with multiple basic filters" },
+            { id: "REQ-010", module: "Search & Filter", description: "User can perform advanced search by height, caste, hobbies, profession, migration status", useCases: ["Search & Filter Matches"], diagram: "Main Use Case", priority: "Medium", status: "Implemented", testScenario: "Apply advanced filters and verify results" },
+            { id: "REQ-011", module: "Search & Filter", description: "User can save search filters and criteria for future use", useCases: ["Search & Filter Matches"], diagram: "Main Use Case", priority: "Low", status: "Pending", testScenario: "Save search criteria and reload later" },
+            { id: "REQ-012", module: "Search & Filter", description: "Guardian can filter matches specifically for their dependent", useCases: ["Filter Matches for Sibling"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "Guardian applies filters for dependent profile" },
+            
+            // Matching Engine
+            { id: "REQ-013", module: "Matching Engine", description: "System generates suggested matches based on user preferences", useCases: ["View Suggested Matches"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Verify suggested matches align with preferences" },
+            { id: "REQ-014", module: "Matching Engine", description: "System provides daily match recommendations to active users", useCases: ["View Suggested Matches"], diagram: "Main Use Case", priority: "Medium", status: "Implemented", testScenario: "Check daily recommendations are generated" },
+            { id: "REQ-015", module: "Matching Engine", description: "Chat functionality unlocks only after mutual interest is expressed", useCases: ["Send/Withdraw Interest", "Accept/Decline Interest", "Chat with Mutual Matches"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Attempt chat before and after mutual interest" },
+            { id: "REQ-016", module: "Matching Engine", description: "User can express interest in potential matches", useCases: ["Send/Withdraw Interest"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Send interest and verify notification sent" },
+            { id: "REQ-017", module: "Matching Engine", description: "User can accept or decline received interests", useCases: ["Accept/Decline Interest"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Accept interest and verify mutual match created" },
+            
+            // Communication
+            { id: "REQ-018", module: "Communication", description: "Users can chat with mutual matches with message history", useCases: ["Chat with Mutual Matches"], diagram: "Main Use Case, Sequence", priority: "High", status: "Implemented", testScenario: "Send messages and verify delivery and history" },
+            { id: "REQ-019", module: "Communication", description: "Users can reveal contact details after mutual consent", useCases: ["Chat with Mutual Matches"], diagram: "Main Use Case", priority: "Medium", status: "Implemented", testScenario: "Share contact info and verify visibility" },
+            { id: "REQ-020", module: "Communication", description: "Users can report and block other users", useCases: ["Block/Report User"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Report user and verify admin notification" },
+            { id: "REQ-021", module: "Communication", description: "Matchmaker can facilitate introductions between users", useCases: ["Facilitate Introductions"], diagram: "Main Use Case", priority: "Medium", status: "Pending", testScenario: "Matchmaker initiates introduction request" },
+            
+            // Notifications
+            { id: "REQ-022", module: "Notifications", description: "System sends notifications for new likes/interests", useCases: ["View Notifications"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Receive interest and verify notification" },
+            { id: "REQ-023", module: "Notifications", description: "System sends notifications for new messages", useCases: ["View Notifications"], diagram: "Main Use Case, Sequence", priority: "High", status: "Implemented", testScenario: "Send message and verify recipient notification" },
+            { id: "REQ-024", module: "Notifications", description: "System sends notifications for profile views", useCases: ["View Notifications"], diagram: "Main Use Case", priority: "Low", status: "Implemented", testScenario: "View profile and verify notification sent" },
+            { id: "REQ-025", module: "Notifications", description: "System supports push, email, and in-app notifications", useCases: ["View Notifications"], diagram: "Main Use Case", priority: "Medium", status: "Implemented", testScenario: "Test all notification channels" },
+            
+            // Admin Panel
+            { id: "REQ-026", module: "Admin Panel", description: "Admin can view and manage all user accounts", useCases: ["Manage Users"], diagram: "Main Use Case, Admin Panel", priority: "High", status: "Implemented", testScenario: "Admin edits user profile" },
+            { id: "REQ-027", module: "Admin Panel", description: "Admin can moderate and approve/reject user content", useCases: ["Moderate Content"], diagram: "Main Use Case, Admin Panel", priority: "High", status: "Implemented", testScenario: "Admin reviews flagged content" },
+            { id: "REQ-028", module: "Admin Panel", description: "Admin can view analytics dashboard with user statistics", useCases: ["View Dashboards & Reports"], diagram: "Main Use Case, Admin Panel", priority: "Medium", status: "Implemented", testScenario: "View dashboard metrics and reports" },
+            { id: "REQ-029", module: "Admin Panel", description: "Admin can handle reported users and take action", useCases: ["Handle Reported Users"], diagram: "Admin Panel", priority: "High", status: "Implemented", testScenario: "Process user report and suspend account" },
+            { id: "REQ-030", module: "Admin Panel", description: "Admin can suspend or ban users violating policies", useCases: ["Suspend/Ban User"], diagram: "Admin Panel", priority: "High", status: "Implemented", testScenario: "Ban user and verify access revoked" },
+            { id: "REQ-031", module: "Admin Panel", description: "Admin can configure feature flags and system settings", useCases: ["Configure Feature Flags"], diagram: "Admin Panel", priority: "Medium", status: "Implemented", testScenario: "Enable/disable features for testing" },
+            { id: "REQ-032", module: "Admin Panel", description: "Admin can manage promotional campaigns", useCases: ["Manage Promotions"], diagram: "Admin Panel", priority: "Low", status: "Pending", testScenario: "Create and activate promotion" },
+            { id: "REQ-033", module: "Admin Panel", description: "Admin can export user and match statistics", useCases: ["Export User/Match Statistics"], diagram: "Admin Panel", priority: "Medium", status: "Planned", testScenario: "Export CSV report with statistics" },
+            { id: "REQ-034", module: "Admin Panel", description: "Admin can generate various system reports", useCases: ["Generate Reports"], diagram: "Admin Panel", priority: "Medium", status: "Implemented", testScenario: "Generate monthly activity report" },
+            
+            // Payment & Subscription
+            { id: "REQ-035", module: "Payment", description: "User can view available subscription plans", useCases: ["View Subscription Plans"], diagram: "Payment System", priority: "Medium", status: "Planned", testScenario: "Display all subscription tiers" },
+            { id: "REQ-036", module: "Payment", description: "User can select and purchase premium subscription", useCases: ["Select Premium Plan", "Make Payment"], diagram: "Payment System", priority: "Medium", status: "Planned", testScenario: "Complete payment flow successfully" },
+            { id: "REQ-037", module: "Payment", description: "System processes transactions via payment gateway", useCases: ["Process Transaction"], diagram: "Payment System", priority: "High", status: "Planned", testScenario: "Test payment gateway integration" },
+            { id: "REQ-038", module: "Payment", description: "System verifies payment status and unlocks premium features", useCases: ["Verify Payment Status", "Unlock Premium Features"], diagram: "Payment System", priority: "High", status: "Planned", testScenario: "Verify premium features accessible after payment" },
+            { id: "REQ-039", module: "Payment", description: "User can view payment history and transactions", useCases: ["View Payment History"], diagram: "Payment System", priority: "Low", status: "Planned", testScenario: "Display all past transactions" },
+            { id: "REQ-040", module: "Payment", description: "User can cancel subscription at any time", useCases: ["Cancel Subscription"], diagram: "Payment System", priority: "Medium", status: "Planned", testScenario: "Cancel and verify premium access expires" },
+            { id: "REQ-041", module: "Payment", description: "System auto-renews subscriptions before expiry", useCases: ["Renew Subscription"], diagram: "Payment System", priority: "Medium", status: "Planned", testScenario: "Test auto-renewal process" },
+            { id: "REQ-042", module: "Payment", description: "User can download invoices for payments", useCases: ["Download Invoice"], diagram: "Payment System", priority: "Low", status: "Planned", testScenario: "Download and verify invoice PDF" },
+            { id: "REQ-043", module: "Payment", description: "Admin can manage user subscriptions", useCases: ["Manage Subscriptions"], diagram: "Admin Panel", priority: "Medium", status: "Planned", testScenario: "Admin modifies user subscription" },
+            
+            // Verification & Identity
+            { id: "REQ-044", module: "Verification", description: "User can verify email and phone number", useCases: ["Verify Email/Phone"], diagram: "Verification System", priority: "High", status: "Implemented", testScenario: "Complete email and phone verification" },
+            { id: "REQ-045", module: "Verification", description: "User can upload ID card for identity verification", useCases: ["Upload ID Card"], diagram: "Verification System", priority: "Medium", status: "Pending", testScenario: "Upload valid ID and await approval" },
+            { id: "REQ-046", module: "Verification", description: "User can submit selfie for photo verification", useCases: ["Submit Selfie for Verification"], diagram: "Verification System", priority: "Medium", status: "Pending", testScenario: "Submit selfie matching ID photo" },
+            { id: "REQ-047", module: "Verification", description: "User can upload professional/educational documents", useCases: ["Upload Professional Documents"], diagram: "Verification System", priority: "Low", status: "Pending", testScenario: "Upload degree certificate for verification" },
+            { id: "REQ-048", module: "Verification", description: "User can view verification status for submitted documents", useCases: ["View Verification Status"], diagram: "Verification System", priority: "Medium", status: "Pending", testScenario: "Check status shows pending/approved/rejected" },
+            { id: "REQ-049", module: "Verification", description: "User can request re-verification if rejected", useCases: ["Request Re-verification"], diagram: "Verification System", priority: "Low", status: "Pending", testScenario: "Request re-verification after rejection" },
+            { id: "REQ-050", module: "Verification", description: "Admin reviews and processes verification requests", useCases: ["Review Verification Request"], diagram: "Verification System", priority: "High", status: "Pending", testScenario: "Admin reviews pending verification" },
+            { id: "REQ-051", module: "Verification", description: "Admin can approve verified accounts", useCases: ["Approve Verification"], diagram: "Verification System", priority: "High", status: "Pending", testScenario: "Approve verification and assign badge" },
+            { id: "REQ-052", module: "Verification", description: "Admin can reject verification with reason", useCases: ["Reject Verification"], diagram: "Verification System", priority: "High", status: "Pending", testScenario: "Reject with reason and notify user" },
+            { id: "REQ-053", module: "Verification", description: "System assigns verification badge to approved users", useCases: ["Assign Verification Badge", "Verify Identities"], diagram: "Main Use Case, Verification System", priority: "Medium", status: "Pending", testScenario: "Verify badge appears on profile" },
+            { id: "REQ-054", module: "Verification", description: "Admin performs document verification for users", useCases: ["Verify Documents"], diagram: "Admin Panel", priority: "High", status: "Pending", testScenario: "Admin verifies uploaded documents" },
+            
+            // Virtual Meeting Room (Creative)
+            { id: "REQ-055", module: "Virtual Meeting", description: "Users can schedule virtual meeting with matched users", useCases: ["Schedule Virtual Meeting"], diagram: "Virtual Meeting", priority: "Low", status: "Planned", testScenario: "Schedule meeting and send invitation" },
+            { id: "REQ-056", module: "Virtual Meeting", description: "Users can set meeting duration limits", useCases: ["Set Meeting Duration"], diagram: "Virtual Meeting", priority: "Low", status: "Planned", testScenario: "Set 30-minute time limit" },
+            { id: "REQ-057", module: "Virtual Meeting", description: "Users can join scheduled meeting room", useCases: ["Join Meeting Room"], diagram: "Virtual Meeting", priority: "Medium", status: "Planned", testScenario: "Join meeting via link" },
+            { id: "REQ-058", module: "Virtual Meeting", description: "Users must accept meeting invitation to join", useCases: ["Accept Meeting Invitation"], diagram: "Virtual Meeting", priority: "Medium", status: "Planned", testScenario: "Accept invitation and join meeting" },
+            { id: "REQ-059", module: "Virtual Meeting", description: "Users can start video call in meeting room", useCases: ["Start Video Call"], diagram: "Virtual Meeting", priority: "Medium", status: "Planned", testScenario: "Initiate video call successfully" },
+            { id: "REQ-060", module: "Virtual Meeting", description: "Users can start audio-only call", useCases: ["Start Audio Call"], diagram: "Virtual Meeting", priority: "Medium", status: "Planned", testScenario: "Start audio call without video" },
+            { id: "REQ-061", module: "Virtual Meeting", description: "Users can share screen during meeting (optional)", useCases: ["Share Screen"], diagram: "Virtual Meeting", priority: "Low", status: "Planned", testScenario: "Share screen and verify visibility" },
+            { id: "REQ-062", module: "Virtual Meeting", description: "Users can mute/unmute audio during call", useCases: ["Mute/Unmute Audio"], diagram: "Virtual Meeting", priority: "Medium", status: "Planned", testScenario: "Toggle mute and verify status" },
+            { id: "REQ-063", module: "Virtual Meeting", description: "Users can invite guardian to join meeting", useCases: ["Invite Guardian to Join"], diagram: "Virtual Meeting", priority: "Medium", status: "Planned", testScenario: "Send guardian invitation during meeting" },
+            { id: "REQ-064", module: "Virtual Meeting", description: "Users can end meeting and disconnect", useCases: ["End Meeting"], diagram: "Virtual Meeting", priority: "High", status: "Planned", testScenario: "End meeting for all participants" },
+            { id: "REQ-065", module: "Virtual Meeting", description: "System saves meeting summary and duration", useCases: ["Save Meeting Summary"], diagram: "Virtual Meeting", priority: "Low", status: "Planned", testScenario: "View saved meeting history" },
+            
+            // AI Compatibility Scoring (Creative)
+            { id: "REQ-066", module: "AI Compatibility", description: "Users can complete compatibility quiz for better matching", useCases: ["Complete Compatibility Quiz"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Complete quiz and save responses" },
+            { id: "REQ-067", module: "AI Compatibility", description: "AI engine analyzes profile data for compatibility", useCases: ["Analyze Profile Data"], diagram: "AI Compatibility", priority: "Medium", status: "Planned", testScenario: "AI processes profile attributes" },
+            { id: "REQ-068", module: "AI Compatibility", description: "System calculates compatibility score between users", useCases: ["Calculate Compatibility Score"], diagram: "AI Compatibility", priority: "Medium", status: "Planned", testScenario: "Generate score between two profiles" },
+            { id: "REQ-069", module: "AI Compatibility", description: "Users can view compatibility percentage with matches", useCases: ["View Compatibility Percentage"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Display percentage on match profile" },
+            { id: "REQ-070", module: "AI Compatibility", description: "Users can view detailed compatibility breakdown", useCases: ["View Detailed Breakdown"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Show breakdown by category (values, lifestyle, goals)" },
+            { id: "REQ-071", module: "AI Compatibility", description: "Users can compare compatibility scores across profiles", useCases: ["Compare Multiple Profiles"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Compare 3 different match scores" },
+            { id: "REQ-072", module: "AI Compatibility", description: "System generates personalized match insights", useCases: ["Generate Match Insights"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Display AI-generated insights" },
+            { id: "REQ-073", module: "AI Compatibility", description: "System analyzes communication style compatibility", useCases: ["View Communication Style Match"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Show communication style alignment" },
+            { id: "REQ-074", module: "AI Compatibility", description: "Users can provide feedback on match quality", useCases: ["Provide Feedback on Match"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Submit feedback on suggested match" },
+            { id: "REQ-075", module: "AI Compatibility", description: "AI improves algorithm based on user feedback", useCases: ["Improve Algorithm"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Verify algorithm learns from feedback" },
+            { id: "REQ-076", module: "AI Compatibility", description: "Users can export compatibility report", useCases: ["Export Compatibility Report"], diagram: "AI Compatibility", priority: "Low", status: "Planned", testScenario: "Download PDF compatibility report" },
+            
+            // Guardian Dashboard (Creative)
+            { id: "REQ-077", module: "Guardian Dashboard", description: "Guardian can manage multiple family member profiles", useCases: ["Manage Multiple Profiles"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "Switch between sibling profiles" },
+            { id: "REQ-078", module: "Guardian Dashboard", description: "Guardian can add new family member profile", useCases: ["Add Family Member"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "Add new dependent profile" },
+            { id: "REQ-079", module: "Guardian Dashboard", description: "Guardian can view proposal status for all dependents", useCases: ["View Proposal Status"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "View status dashboard for all profiles" },
+            { id: "REQ-080", module: "Guardian Dashboard", description: "Guardian can track sent proposals per dependent", useCases: ["Track Sent Proposals"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "View list of sent proposals with status" },
+            { id: "REQ-081", module: "Guardian Dashboard", description: "Guardian can track received proposals per dependent", useCases: ["Track Received Proposals"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "View incoming proposals with details" },
+            { id: "REQ-082", module: "Guardian Dashboard", description: "Guardian can respond to interests on behalf of dependent", useCases: ["Respond to Interests"], diagram: "Guardian Dashboard", priority: "High", status: "Planned", testScenario: "Accept/decline interest as guardian" },
+            { id: "REQ-083", module: "Guardian Dashboard", description: "Guardian can set match preferences for dependent", useCases: ["Set Guardian Preferences"], diagram: "Guardian Dashboard", priority: "Medium", status: "Planned", testScenario: "Configure preferences for sibling" },
+            { id: "REQ-084", module: "Guardian Dashboard", description: "Guardian can schedule family meetings with matches", useCases: ["Schedule Family Meetings"], diagram: "Guardian Dashboard", priority: "Low", status: "Planned", testScenario: "Schedule meeting with match's family" },
+            { id: "REQ-085", module: "Guardian Dashboard", description: "Guardian can view proposal analytics", useCases: ["View Proposal Analytics"], diagram: "Guardian Dashboard", priority: "Low", status: "Planned", testScenario: "View success rate and engagement metrics" },
+            { id: "REQ-086", module: "Guardian Dashboard", description: "Guardian can export family dashboard data", useCases: ["Export Family Dashboard"], diagram: "Guardian Dashboard", priority: "Low", status: "Planned", testScenario: "Export all dependent data to PDF" },
+            
+            // Additional System Requirements
+            { id: "REQ-087", module: "Profile Management", description: "Matchmaker can create curated lists of profiles", useCases: ["Create Curated Lists"], diagram: "Main Use Case", priority: "Low", status: "Pending", testScenario: "Matchmaker creates themed list" },
+            { id: "REQ-088", module: "Authentication", description: "Guest can browse public content without login", useCases: ["Browse Public Content"], diagram: "Main Use Case", priority: "Low", status: "Implemented", testScenario: "Access FAQs and success stories as guest" },
+            { id: "REQ-089", module: "Profile Management", description: "System stores user preferences for matching", useCases: ["Set Preferences"], diagram: "Main Use Case", priority: "High", status: "Implemented", testScenario: "Save preferences and verify in database" },
+            { id: "REQ-090", module: "Payment", description: "User can manage subscription through dedicated interface", useCases: ["Manage Subscription"], diagram: "Main Use Case", priority: "Medium", status: "Planned", testScenario: "Upgrade/downgrade subscription plan" }
+        ];
+
+        let filteredData = [...requirements];
+
+        function renderTable(data) {
+            const tbody = document.getElementById('rtmBody');
+            tbody.innerHTML = '';
+            
+            data.forEach(req => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td><span class="req-id">${req.id}</span></td>
+                    <td>${req.module}</td>
+                    <td>${req.description}</td>
+                    <td>${req.useCases.map(uc => `<span class="use-case-tag">${uc}</span>`).join('')}</td>
+                    <td><span class="diagram-ref">${req.diagram}</span></td>
+                    <td><span class="priority-${req.priority.toLowerCase()}">${req.priority}</span></td>
+                    <td><span class="status-${req.status.toLowerCase()}">${req.status}</span></td>
+                    <td>${req.testScenario}</td>
+                `;
+                tbody.appendChild(row);
+            });
+            
+            updateStats(data);
+        }
+
+        function updateStats(data) {
+            document.getElementById('totalReqs').textContent = requirements.length;
+            document.getElementById('displayedReqs').textContent = data.length;
+            document.getElementById('highPriority').textContent = requirements.filter(r => r.priority === 'High').length;
+            document.getElementById('coverage').textContent = '100%';
+        }
+
+        function filterTable() {
+            const moduleFilter = document.getElementById('moduleFilter').value;
+            const priorityFilter = document.getElementById('priorityFilter').value;
+            const statusFilter = document.getElementById('statusFilter').value;
+            const searchText = document.getElementById('searchBox').value.toLowerCase();
+            
+            filteredData = requirements.filter(req => {
+                const matchModule = moduleFilter === 'all' || req.module === moduleFilter;
+                const matchPriority = priorityFilter === 'all' || req.priority === priorityFilter;
+                const matchStatus = statusFilter === 'all' || req.status === statusFilter;
+                const matchSearch = searchText === '' || 
+                    req.description.toLowerCase().includes(searchText) ||
+                    req.id.toLowerCase().includes(searchText) ||
+                    req.useCases.some(uc => uc.toLowerCase().includes(searchText));
+                
+                return matchModule && matchPriority && matchStatus && matchSearch;
+            });
+            
+            renderTable(filteredData);
+        }
+
+        function exportToCSV() {
+            const headers = ['Req ID', 'Module', 'Requirement Description', 'Use Cases', 'Diagram Reference', 'Priority', 'Status', 'Test Scenario'];
+            const csvContent = [
+                headers.join(','),
+                ...filteredData.map(req => [
+                    req.id,
+                    req.module,
+                    `"${req.description}"`,
+                    `"${req.useCases.join('; ')}"`,
+                    `"${req.diagram}"`,
+                    req.priority,
+                    req.status,
+                    `"${req.testScenario}"`
+                ].join(','))
+            ].join('\n');
+            
+            const blob = new Blob([csvContent], { type: 'text/csv' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'E-Shaadi_RTM.csv';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }
+
+        // Event Listeners
+        document.getElementById('moduleFilter').addEventListener('change', filterTable);
+        document.getElementById('priorityFilter').addEventListener('change', filterTable);
+        document.getElementById('statusFilter').addEventListener('change', filterTable);
+        document.getElementById('searchBox').addEventListener('input', filterTable);
+
+        // Initial render
+        renderTable(requirements);
+    </script>
+</body>
+</html>

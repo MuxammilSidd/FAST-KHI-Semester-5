@@ -1,0 +1,11 @@
+DBS Assignment03 Q2: SQL Queries 23K-2001
+
+1. SELECT itemName FROM MenuItem WHERE isAvailable = 0 AND price > 500;
+2. SELECT itemName FROM MenuItem WHERE (category = 'Beverage' AND price > 300) OR category = 'Dessert';
+3. SELECT itemName, price FROM MenuItem WHERE category = 'Snack' AND isAvailable = 1;
+4. SELECT itemName, price/100 AS price_in_hundreds FROM MenuItem WHERE category = 'Snack' AND isAvailable = 1;
+5. SELECT DISTINCT supplierID FROM Supplies JOIN MenuItem ON Supplies.itemID = MenuItem.itemID WHERE itemName = 'Cappuccino';
+6. SELECT Employee.name, Cafe.cafeName FROM Employee JOIN Cafe ON Employee.cafeID = Cafe.cafeID WHERE Employee.address = Cafe.city;
+7. SELECT empID FROM Employee WHERE salary <> 50000;
+8. SELECT supplierID FROM Supplier WHERE city = 'Karachi' INTERSECT SELECT supplierID FROM Supplier WHERE city = 'Lahore';
+0. SELECT itemName FROM MenuItem WHERE itemID NOT IN (SELECT itemID FROM Supplies);
