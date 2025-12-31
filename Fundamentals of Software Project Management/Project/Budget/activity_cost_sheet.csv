@@ -1,0 +1,187 @@
+WBS Code,Activity Name,Resource,Hours,Hourly Rate (PKR),Total Cost (PKR),Week
+1.1.1,Conduct project kickoff meeting with stakeholders,Project Manager,4,5000,20000.00,1
+1.1.2,Define and approve project charter,Project Manager,8,5000,40000.00,1
+1.1.3,Establish project governance and communication structure,Project Manager,6,5000,30000.00,1
+1.1.4,Conduct stakeholder identification and create register,Business Analyst,6,3500,21000.00,1
+1.1.5,Schedule expert consultant sessions,Project Manager,2,5000,10000.00,1
+1.1.6,Set up project repository and documentation tools,Technical Lead,4,4500,18000.00,1
+1.2.1,Conduct customer needs analysis workshop,Business Analyst,8,3500,28000.00,1
+1.2.2,Interview restaurant staff for operational requirements,Business Analyst,6,3500,21000.00,1
+1.2.3,Gather delivery rider requirements,Business Analyst,4,3500,14000.00,1
+1.2.4,Document functional requirements for all systems,Business Analyst,16,3500,56000.00,1
+1.2.5,Create use case diagrams for all user types,Business Analyst,12,3500,42000.00,1
+1.2.6,Validate requirements with stakeholders,Business Analyst,6,3500,21000.00,1
+1.2.7,Finalize requirements document with expert approval,Business Analyst,8,3500,28000.00,1
+1.3.1,Evaluate and select technology stack,Technical Lead,8,4500,36000.00,2
+1.3.2,Design high-level system architecture,Technical Lead,12,4500,54000.00,2
+1.3.3,Select cloud hosting provider and services,Technical Lead,6,4500,27000.00,2
+1.3.4,Select payment and SMS gateway providers,Technical Lead,8,4500,36000.00,2
+1.3.5,Set up development environments,Technical Lead,8,4500,36000.00,2
+1.3.6,Establish version control and CI/CD pipeline,Backend Developer,12,3000,36000.00,2
+1.3.7,Finalize project plan with WBS and timeline,Project Manager,16,5000,80000.00,2
+2.1.1,Conduct user research and create personas,UI/UX Designer,12,2500,30000.00,3
+2.1.2,Create user journey maps and information architecture,UI/UX Designer,10,2500,25000.00,3
+2.1.3,Design wireframes for all customer app screens,UI/UX Designer,16,2500,40000.00,3
+2.1.4,Design high-fidelity mockups for home and menu screens,UI/UX Designer,12,2500,30000.00,4
+2.1.5,Design shopping cart and checkout flow,UI/UX Designer,10,2500,25000.00,4
+2.1.6,Design order tracking interface with map,UI/UX Designer,10,2500,25000.00,4
+2.1.7,Design profile and order history screens,UI/UX Designer,8,2500,20000.00,4
+2.1.8,Conduct usability testing with target users,UI/UX Designer,8,2500,20000.00,5
+2.2.1,Create rider personas and journey maps,UI/UX Designer,6,2500,15000.00,5
+2.2.2,Design rider dashboard and order assignment interface,UI/UX Designer,10,2500,25000.00,5
+2.2.3,Design navigation and routing screens,UI/UX Designer,8,2500,20000.00,5
+2.2.4,Design delivery confirmation flow,UI/UX Designer,6,2500,15000.00,5
+2.2.5,Design earnings and performance dashboard,UI/UX Designer,8,2500,20000.00,5
+2.2.6,Validate designs with delivery riders,UI/UX Designer,4,2500,10000.00,6
+2.3.1,Design restaurant dashboard and order queue,UI/UX Designer,10,2500,25000.00,6
+2.3.2,Design kitchen display system (KDS) interface,UI/UX Designer,10,2500,25000.00,6
+2.3.3,Design menu and inventory management screens,UI/UX Designer,8,2500,20000.00,6
+2.3.4,Design sales reporting interface,UI/UX Designer,8,2500,20000.00,6
+2.3.5,Validate designs with restaurant staff,UI/UX Designer,4,2500,10000.00,6
+2.3.6,Create design system and component library,UI/UX Designer,12,2500,30000.00,6
+2.4.1,Design admin dashboard with key metrics,UI/UX Designer,10,2500,25000.00,6
+2.4.2,Design analytics and reporting interfaces,UI/UX Designer,10,2500,25000.00,6
+2.4.3,Design user and system management screens,UI/UX Designer,8,2500,20000.00,6
+2.4.4,Design promotional campaign management interface,UI/UX Designer,8,2500,20000.00,6
+2.5.1,Create entity-relationship diagram (ERD),Database Administrator,12,3500,42000.00,5
+2.5.2,"Design user, authentication, and profile tables",Database Administrator,8,3500,28000.00,5
+2.5.3,"Design menu, category, and item tables",Database Administrator,6,3500,21000.00,5
+2.5.4,Design order and order items tables,Database Administrator,8,3500,28000.00,5
+2.5.5,Design payment and transaction tables,Database Administrator,6,3500,21000.00,5
+2.5.6,"Design delivery, rider, and tracking tables",Database Administrator,8,3500,28000.00,6
+2.5.7,Design loyalty program and promotional tables,Database Administrator,6,3500,21000.00,6
+2.5.8,Normalize schema and create indexing strategy,Database Administrator,10,3500,35000.00,6
+3.1.1,Set up Node.js backend framework and structure,Backend Developer,8,3000,24000.00,7
+3.1.2,Configure PostgreSQL database with migrations,Database Administrator,8,3500,28000.00,7
+3.1.3,Set up Redis caching layer,Backend Developer,6,3000,18000.00,7
+3.1.4,Implement JWT authentication and authorization,Backend Developer,12,3000,36000.00,7
+3.1.5,Implement user registration and OTP verification,Backend Developer,10,3000,30000.00,8
+3.1.6,Implement password reset functionality,Backend Developer,6,3000,18000.00,8
+3.1.7,Implement role-based access control (RBAC),Backend Developer,10,3000,30000.00,8
+3.1.8,Set up API rate limiting and error handling,Backend Developer,8,3000,24000.00,8
+3.1.9,Implement logging and monitoring services,Backend Developer,8,3000,24000.00,8
+3.1.10,Set up API documentation (Swagger/OpenAPI),Backend Developer,6,3000,18000.00,8
+3.1.11,Create automated database backup system,Database Administrator,6,3500,21000.00,8
+3.1.12,Implement security middleware and validation,Backend Developer,8,3000,24000.00,8
+3.1.13,Set up testing framework and initial tests,Backend Developer,8,3000,24000.00,8
+3.2.1,Implement menu management APIs (CRUD),Backend Developer,10,3000,30000.00,9
+3.2.2,Implement shopping cart APIs,Backend Developer,8,3000,24000.00,9
+3.2.3,Implement order placement and management APIs,Backend Developer,12,3000,36000.00,9
+3.2.4,Implement order status update workflow,Backend Developer,8,3000,24000.00,9
+3.2.5,Implement real-time tracking with WebSocket,Backend Developer,12,3000,36000.00,10
+3.2.6,Integrate Stripe payment gateway,Backend Developer,12,3000,36000.00,10
+3.2.7,Integrate JazzCash payment API,Backend Developer,10,3000,30000.00,10
+3.2.8,Integrate EasyPaisa payment API,Backend Developer,10,3000,30000.00,10
+3.2.9,Implement payment webhook handlers,Backend Developer,8,3000,24000.00,10
+3.2.10,"Integrate Google Maps API (geocoding, routing)",Backend Developer,10,3000,30000.00,11
+3.2.11,Implement rider assignment algorithm,Backend Developer,12,3000,36000.00,11
+3.2.12,Implement rider location tracking API,Backend Developer,10,3000,30000.00,11
+3.2.13,Integrate Firebase Cloud Messaging (FCM),Backend Developer,8,3000,24000.00,11
+3.2.14,Integrate Twilio SMS service,Backend Developer,6,3000,18000.00,11
+3.2.15,Implement notification scheduling service,Backend Developer,8,3000,24000.00,11
+3.2.16,Implement loyalty points calculation engine,Backend Developer,8,3000,24000.00,12
+3.2.17,Implement promotional code validation API,Backend Developer,6,3000,18000.00,12
+3.3.1,Set up React Native project structure,Frontend Developer,6,3000,18000.00,9
+3.3.2,Implement splash screen and onboarding,Frontend Developer,6,3000,18000.00,9
+3.3.3,Implement user registration and login flow,Frontend Developer,10,3000,30000.00,9
+3.3.4,Implement home screen with promotions,Frontend Developer,8,3000,24000.00,9
+3.3.5,Implement menu browsing with categories,Frontend Developer,10,3000,30000.00,10
+3.3.6,Implement search and filtering functionality,Frontend Developer,8,3000,24000.00,10
+3.3.7,Implement product detail and customization,Frontend Developer,8,3000,24000.00,10
+3.3.8,Implement shopping cart management,Frontend Developer,10,3000,30000.00,10
+3.3.9,Implement checkout and payment integration,Frontend Developer,12,3000,36000.00,11
+3.3.10,Implement order tracking with live map,Frontend Developer,12,3000,36000.00,11
+3.3.11,Implement push notification handling,Frontend Developer,6,3000,18000.00,11
+3.3.12,Implement order history and reordering,Frontend Developer,8,3000,24000.00,11
+3.3.13,Implement user profile management,Frontend Developer,8,3000,24000.00,12
+3.3.14,Implement ratings and review system,Frontend Developer,8,3000,24000.00,12
+3.3.15,Optimize performance and test on devices,Frontend Developer,12,3000,36000.00,12
+3.4.1,Set up Android project for rider app,Frontend Developer,6,3000,18000.00,12
+3.4.2,Implement rider authentication and profile,Frontend Developer,8,3000,24000.00,12
+3.4.3,Implement order list and assignment screen,Frontend Developer,10,3000,30000.00,13
+3.4.4,Implement order acceptance/rejection flow,Frontend Developer,6,3000,18000.00,13
+3.4.5,Implement Google Maps navigation integration,Frontend Developer,10,3000,30000.00,13
+3.4.6,Implement background GPS tracking service,Frontend Developer,12,3000,36000.00,13
+3.4.7,Implement customer communication (call/message),Frontend Developer,6,3000,18000.00,13
+3.4.8,Implement delivery confirmation with PIN,Frontend Developer,8,3000,24000.00,14
+3.4.9,Implement earnings and performance dashboard,Frontend Developer,10,3000,30000.00,14
+3.4.10,Implement availability toggle and optimize battery,Frontend Developer,8,3000,24000.00,14
+3.5.1,Set up React.js project for restaurant portal,Frontend Developer,6,3000,18000.00,14
+3.5.2,Implement staff authentication system,Frontend Developer,6,3000,18000.00,14
+3.5.3,Implement real-time order queue with alerts,Frontend Developer,12,3000,36000.00,14
+3.5.4,Implement order details and status updates,Frontend Developer,8,3000,24000.00,15
+3.5.5,Implement menu management interface,Frontend Developer,10,3000,30000.00,15
+3.5.6,Implement inventory management,Frontend Developer,8,3000,24000.00,15
+3.5.7,Implement sales reports and analytics,Frontend Developer,10,3000,30000.00,15
+3.6.1,Set up admin dashboard project structure,Frontend Developer,6,3000,18000.00,15
+3.6.2,Implement admin authentication and authorization,Frontend Developer,6,3000,18000.00,15
+3.6.3,Implement operational dashboard with real-time metrics,Frontend Developer,12,3000,36000.00,16
+3.6.4,Implement analytics and reporting visualizations,Frontend Developer,12,3000,36000.00,16
+3.6.5,"Implement user management (customers, riders, staff)",Frontend Developer,10,3000,30000.00,16
+3.6.6,Implement promotional campaign and system configuration,Frontend Developer,10,3000,30000.00,16
+4.1.1,Create comprehensive test plan and strategy,QA Tester,10,2500,25000.00,17
+4.1.2,Define test scenarios and create test cases,QA Tester,16,2500,40000.00,17
+4.1.3,Set up test environment and prepare test data,QA Tester,8,2500,20000.00,17
+4.2.1,Execute customer app functional tests,QA Tester,16,2500,40000.00,18
+4.2.2,Execute rider app functional tests,QA Tester,12,2500,30000.00,18
+4.2.3,Execute restaurant portal functional tests,QA Tester,12,2500,30000.00,18
+4.2.4,Execute admin dashboard functional tests,QA Tester,12,2500,30000.00,18
+4.2.5,Test payment gateway integrations end-to-end,QA Tester,10,2500,25000.00,19
+4.2.6,Test notification services (SMS and push),QA Tester,6,2500,15000.00,19
+4.2.7,Test complete order workflow from placement to delivery,QA Tester,12,2500,30000.00,19
+4.2.8,Document defects and execute regression testing,QA Tester,12,2500,30000.00,19
+4.3.1,Conduct load testing (200 concurrent users),QA Tester,8,2500,20000.00,19
+4.3.2,Conduct stress testing (500+ concurrent users),QA Tester,8,2500,20000.00,19
+4.3.3,Optimize API response times and database queries,Database Administrator,12,3500,42000.00,20
+4.3.4,Conduct security vulnerability scanning,External Auditor,8,8000,64000.00,20
+4.3.5,Perform penetration testing on all systems,External Auditor,12,8000,96000.00,20
+4.3.6,Address all critical security vulnerabilities,Backend Developer,16,3000,48000.00,20
+4.4.1,Test customer app on 10+ device models,QA Tester,12,2500,30000.00,20
+4.4.2,Test rider app on 5+ Android devices,QA Tester,8,2500,20000.00,20
+4.4.3,Test web portals across multiple browsers,QA Tester,8,2500,20000.00,20
+4.4.4,Conduct user acceptance testing (UAT) with stakeholders,Business Analyst,12,3500,42000.00,20
+4.4.5,Obtain UAT sign-off and approval,Project Manager,4,5000,20000.00,20
+5.1.1,Provision production cloud servers (AWS/GCP),Technical Lead,8,4500,36000.00,21
+5.1.2,Configure load balancer and auto-scaling,Backend Developer,8,3000,24000.00,21
+5.1.3,Set up production database with replication,Database Administrator,10,3500,35000.00,21
+5.1.4,Configure Redis cache cluster,Backend Developer,6,3000,18000.00,21
+5.1.5,Set up CDN for static assets,Backend Developer,4,3000,12000.00,21
+5.1.6,Install SSL certificates and configure HTTPS,Backend Developer,4,3000,12000.00,21
+5.1.7,"Set up monitoring, alerting, and logging systems",Backend Developer,8,3000,24000.00,21
+5.1.8,Configure automated backup and disaster recovery,Database Administrator,8,3500,28000.00,21
+5.2.1,Deploy backend APIs to production,Backend Developer,6,3000,18000.00,22
+5.2.2,Deploy admin dashboard to production,Frontend Developer,4,3000,12000.00,22
+5.2.3,Deploy restaurant portal to production,Frontend Developer,4,3000,12000.00,22
+5.2.4,Submit and publish customer app to App Store,Frontend Developer,6,3000,18000.00,22
+5.2.5,Submit and publish customer app to Google Play,Frontend Developer,6,3000,18000.00,22
+5.2.6,Submit and publish rider app to Google Play,Frontend Developer,6,3000,18000.00,22
+5.2.7,Conduct production smoke testing and validation,QA Tester,8,2500,20000.00,22
+6.1.1,Define delivery zones and configure pricing,Delivery Operations Manager,8,3000,24000.00,21
+6.1.2,"Procure delivery bags, uniforms, and equipment",Rider Coordinator,12,2500,30000.00,21
+6.1.3,Recruit and interview 20 delivery riders,Rider Coordinator,40,2500,100000.00,21
+6.1.4,Complete rider onboarding and documentation,Rider Coordinator,16,2500,40000.00,22
+6.1.5,Distribute equipment and uniforms to riders,Rider Coordinator,8,2500,20000.00,22
+6.1.6,Set up rider scheduling and zone assignments,Delivery Operations Manager,8,3000,24000.00,22
+6.2.1,Develop training materials for all user types,Business Analyst,16,3500,56000.00,21
+6.2.2,Create video tutorials and documentation,Business Analyst,12,3500,42000.00,21
+6.2.3,Conduct 2-day restaurant staff training workshop,Business Analyst,16,3500,56000.00,22
+6.2.4,Conduct 3-day delivery rider training program,Delivery Operations Manager,24,3000,72000.00,22
+6.2.5,Conduct admin dashboard training for management,Project Manager,4,5000,20000.00,22
+6.2.6,Evaluate training effectiveness with assessments,Business Analyst,6,3500,21000.00,22
+6.3.1,Develop brand identity and marketing guidelines,Marketing Manager,12,3000,36000.00,21
+6.3.2,Create social media content and campaigns,Marketing Manager,16,3000,48000.00,21
+6.3.3,Design in-store promotional materials,UI/UX Designer,10,2500,25000.00,22
+6.3.4,"Set up launch promotions (25% off, referral program)",Marketing Manager,6,3000,18000.00,22
+6.3.5,Configure loyalty program in system,Backend Developer,6,3000,18000.00,22
+7.1.1,Launch with limited delivery zone (Week 23),Project Manager,8,5000,40000.00,23
+7.1.2,Monitor system performance 24/7,Technical Lead,40,4500,180000.00,23
+7.1.3,Collect user feedback and address issues,Business Analyst,20,3500,70000.00,23
+7.1.4,Optimize workflows based on real operations,Delivery Operations Manager,16,3000,48000.00,23
+7.2.1,Execute full marketing campaign,Marketing Manager,12,3000,36000.00,24
+7.2.2,Expand delivery zones progressively,Delivery Operations Manager,12,3000,36000.00,24
+7.2.3,Scale rider fleet based on demand,Rider Coordinator,16,2500,40000.00,25
+7.2.4,Monitor KPIs and customer acquisition,Project Manager,12,5000,60000.00,25
+7.3.1,Conduct post-launch performance review,Project Manager,8,5000,40000.00,26
+7.3.2,Document lessons learned,Project Manager,8,5000,40000.00,26
+7.3.3,Create project closure report,Project Manager,12,5000,60000.00,26
+7.3.4,Handover to operations team with final presentation,Project Manager,6,5000,30000.00,26

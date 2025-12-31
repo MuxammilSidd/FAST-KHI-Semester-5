@@ -1,0 +1,63 @@
+FOODHUB PROJECT - BUDGET SUMMARY
+
+Project Information
+Project Name,FoodHub - Online Food Ordering & Delivery Management System
+Start Date,2025-12-01
+End Date,2026-05-31
+Duration,26 weeks (6 months)
+Total Activities,186
+
+Cost Breakdown by Resource Type
+Resource,Total Hours,Hourly Rate (PKR),Total Cost (PKR)
+Backend Developer,318.0,3000,954000.00
+Branch Manager,0.0,3500,0.00
+Business Analyst,148.0,3500,518000.00
+Database Administrator,108.0,3500,378000.00
+Delivery Operations Manager,68.0,3000,204000.00
+External Auditor,20.0,8000,160000.00
+Frontend Developer,358.0,3000,1074000.00
+Legal Consultant,0.0,5000,0.00
+Marketing Manager,46.0,3000,138000.00
+Project Manager,98.0,5000,490000.00
+QA Tester,178.0,2500,445000.00
+Rider Coordinator,92.0,2500,230000.00
+Technical Lead,94.0,4500,423000.00
+UI/UX Designer,226.0,2500,565000.00
+
+Total Labor Costs,,,5579000.00
+
+Fixed Costs Summary
+Category,Amount (PKR)
+Background Checks (20 riders),20000
+Cloud Setup Fees,30000
+Delivery Bags (30 units),150000
+Development Licenses,50000
+Google Maps API Credits,25000
+Job Advertisement Postings,10000
+Legal Consultation,50000
+Marketing Materials Printing,50000
+Professional Photography,30000
+Rider Uniforms (20 sets),60000
+SMS Gateway Credits,15000
+SSL Certificates,15000
+Security Audit,100000
+Smartphone Accessories,50000
+Vehicle Branding,40000
+Video Production,80000
+Total Fixed Costs,775000
+
+PROJECT TOTALS
+Total Labor Costs,5579000.00
+Total Fixed Costs,775000
+Contingency (15%),953100.00
+GRAND TOTAL,7307100.00
+
+Cost by Phase
+Phase,Weeks,Total Cost (PKR)
+1.0 Initiation & Planning,1-2,713615.38
+2.0 Design,3-6,883230.77
+3.0 Development,7-16,2087076.92
+4.0 Testing & QA,17-20,856230.77
+5.0 Deployment,21-22,1014615.38
+6.0 Operational Setup,21-22,1014615.38
+7.0 Launch & Stabilization,23-26,799230.77

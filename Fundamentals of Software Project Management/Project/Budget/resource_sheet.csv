@@ -1,0 +1,33 @@
+Resource Name,Type,Hourly Rate (PKR),Total Hours,Total Cost (PKR)
+Backend Developer,Labor,3000,318.0,954000.00
+Branch Manager,Labor,3500,0.0,0.00
+Business Analyst,Labor,3500,148.0,518000.00
+Database Administrator,Labor,3500,108.0,378000.00
+Delivery Operations Manager,Labor,3000,68.0,204000.00
+External Auditor,Labor,8000,20.0,160000.00
+Frontend Developer,Labor,3000,358.0,1074000.00
+Legal Consultant,Labor,5000,0.0,0.00
+Marketing Manager,Labor,3000,46.0,138000.00
+Project Manager,Labor,5000,98.0,490000.00
+QA Tester,Labor,2500,178.0,445000.00
+Rider Coordinator,Labor,2500,92.0,230000.00
+Technical Lead,Labor,4500,94.0,423000.00
+UI/UX Designer,Labor,2500,226.0,565000.00
+
+Fixed Cost Items,Type,Unit Cost,Quantity,Total Cost (PKR)
+Background Checks (20 riders),Fixed,20000,1,20000
+Cloud Setup Fees,Fixed,30000,1,30000
+Delivery Bags (30 units),Fixed,150000,1,150000
+Development Licenses,Fixed,50000,1,50000
+Google Maps API Credits,Fixed,25000,1,25000
+Job Advertisement Postings,Fixed,10000,1,10000
+Legal Consultation,Fixed,50000,1,50000
+Marketing Materials Printing,Fixed,50000,1,50000
+Professional Photography,Fixed,30000,1,30000
+Rider Uniforms (20 sets),Fixed,60000,1,60000
+SMS Gateway Credits,Fixed,15000,1,15000
+SSL Certificates,Fixed,15000,1,15000
+Security Audit,Fixed,100000,1,100000
+Smartphone Accessories,Fixed,50000,1,50000
+Vehicle Branding,Fixed,40000,1,40000
+Video Production,Fixed,80000,1,80000
