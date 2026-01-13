@@ -15,6 +15,8 @@ For any queries/improvement feel free to contact me on k232001@nu.edu.pk<br>For 
 
 - [4th Semester KHI](https://github.com/MuxammilSidd/FAST-KHI-Semester-4)
 
+- [6th Semester KHI](https://github.com/MuxammilSidd/FAST-KHI-Semester-6)
+
 ### 🔗 Guide to get you started
 - [Useful websites you should know!](#-useful-websites-you-should-know)
 
@@ -73,35 +75,35 @@ For any queries/improvement feel free to contact me on k232001@nu.edu.pk<br>For 
     <td rowspan="5" style="text-align:center;">5</td>
     <td>CS4044</td>
     <td>FSPM</td>
-    <td>Fundamentals of Software Project Management</td>
+    <td><a href="#-fundamentals-of-software-project-management">Fundamentals of Software Project Management</a></td>
     <td>Elective</td>
     <td>3</td>
   </tr>
   <tr>
-    <td></td>
+    <td>CS4053</td>
     <td>RS</td>
-    <td>Recommended Systems</td>
+    <td><a href="#-recommender-systems">Recommender Systems</a></td>
     <td>Elective</td>
     <td>3</td>
   </tr>
   <tr>
-    <td></td>
+    <td>MT3001</td>
     <td>GT</td>
-    <td>Graph Theory</td>
+    <td><a href="#-graph-theory">Graph Theory</a></td>
     <td>Elective</td>
     <td>3</td>
   </tr>
   <tr>
-    <td></td>
+    <td>CS4032</td>
     <td>WP</td>
-    <td>Web Programming</td>
+    <td><a href="#-web-programming">Web Programming</a></td>
     <td>Elective</td>
     <td>3</td>
   </tr>
   <tr>
-    <td></td>
+    <td>MT4031</td>
     <td>OR</td>
-    <td>Operation Research</td>
+    <td><a href="#-operations-research">Operations Research</a></td>
     <td>Elective</td>
     <td>3</td>
   </tr>
@@ -176,8 +178,14 @@ pata chale toh mujhe bhi bata dena pls
 
 ## 🔗 Course wise guide
 ### 📌 Database Systems:
+DBS is a comparatively easy course, yet it is extremely important. Almost every interview you face in the future will include at least one or two questions from this subject. The concepts are easy to grasp, but they require practice to implement them confidently. Most topics are closely related to real-life scenarios, which makes them easier to understand. The only challenging topic you may encounter is Joins. For this, regular practice is essential. You should follow [Jenny’s Lectures](https://youtube.com/playlist?list=PLdo5W4Nhv31b33kF46f9aFjoJPOkdlsRc&si=0CiHJdmhpi-8Y5Gw) and [Gate Smashers Playlist](https://youtube.com/playlist?list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y&si=KGZtNlWxo3SmJlf8), as their explanations are clear and beginner-friendly. For the transactions part, the [KnowledgeGate DBMS Playlist](https://youtube.com/playlist?list=PLmXKhU9FNesR1rSES7oLdJaNFgmuj0SYV&si=qzB3gqlOSHDeIZc1) is highly recommended; it is detailed and aligns well with our syllabus.
+For practice, make sure to solve lab tasks from instructors of other sections as well, especially for PL/SQL and Joins. Overall, this is an easy and scoring course if you maintain pace with your teacher and practice consistently.
+For the lab, the advice is mostly the same. However, one important thing to remember is that time management is the biggest challenge during exams. Both mids and finals are very lengthy, so it is crucial to manage your time wisely. During exams, it is better to attempt the non-query parts first and leave the queries for the end, as they usually consume a lot of time. Practice is key here. Try solving problems by first writing subqueries and then converting them into joins. This approach makes your concepts crystal clear, especially how the result of one query is used by an outer query. Ideally, practice writing each query in both styles. The final exam is highly marks-gaining, so don’t lose hope even if your mids don’t go well. Make sure to practice triggers and PL/SQL, as these topics can be tricky and are often used to create confusion. Other topics like MongoDB and related concepts are relatively easy and straightforward
+
 🔗 Useful Youtube Playlists:
 - [DBMS by Gate Smashers](https://www.youtube.com/watch?v=kBdlM6hNDAE&list=PLxCzCOWd7aiFAN6I8CuViBuCdJgiOkT2Y)
+- [Jenny’s Lectures CS-IT: DBMS](https://youtube.com/playlist?list=PLdo5W4Nhv31b33kF46f9aFjoJPOkdlsRc&si=0CiHJdmhpi-8Y5Gw)
+- [KnowledgeGate DBMS Playlist](https://youtube.com/playlist?list=PLmXKhU9FNesR1rSES7oLdJaNFgmuj0SYV&si=qzB3gqlOSHDeIZc1)
 
 🔗 Projects:
 - [AirOpsManager](https://github.com/SyedMuhammadFaheem/AirOpsManager-AirlinesManagementSystem) - Flight Management System using MERN Stack by Syed Muhammad Faheem.
@@ -188,29 +196,36 @@ pata chale toh mujhe bhi bata dena pls
 - [Fundamentals of DBS Slides](https://www.cs.purdue.edu/homes/bb/cs448_Fall2017/lpdf/) - 7th Edition
 - [Complete DBMS One-Shot](https://youtu.be/YRnjGeQbsHQ?feature=shared) - by KnowledgeGate
 
-🔗 Lab:
-
 🔗 Google Drives:
 - [DB Book Slides](https://drive.google.com/drive/folders/1fS2ICQhrw3WvTmI8InrzapbHgNtMEwgX?usp=drive_link) - Chapter-wise slides of course book.
 
-🔗 Full courses:
-
 ---
 ### 📌 Design & Analysis of Algorithms:
+Algorithms is a relatively tricky course and can cause serious trouble if you don’t take it seriously from the start. Many people recommend [Abdul Bari](https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O), and he is undoubtedly a great teacher for building intuition. However, for Mid-1, his lectures were not very helpful for me personally (please don’t kill me). In hindsight, it would have been better if I had relied more on the slides instead of depending solely on his lectures.
+I know many people will disagree, but this is purely my point of view. Abdul Bari is excellent for understanding concepts, but exam questions are usually not framed the same way. One very important thing to do is to carefully study the marking scheme from [previous papers](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/tree/main/Design%20%26%20Analysis%20of%20Algorithms/Past%20Papers). For example, I lost almost 3 marks just because I didn’t draw a recursion tree in the exact way my teacher expected. Similarly, some of my classmates lost marks in an easy knapsack question simply because they didn’t draw the keep table. I was lucky enough to go through the slides beforehand, where both the DP table and the keep table were shown. From this experience if something is part of the marking scheme, your instructor will expect it.
+From Mid-2 onwards, you should follow [Striver](https://www.youtube.com/@takeUforward) along with Abdul Bari. At this stage, start solving scenario-based questions from GeeksforGeeks and LeetCode using similar problem patterns to solidify your understanding. Once again, always refer back to your slides to match the representation and structure expected in exams.
+A common mistake students make is rote learning algorithms, which is a bad idea. Exam questions are rarely straightforward, and under pressure you’re more likely to forget memorized steps. Instead, focus on:
+Understanding the intuition > Dry running the algorithm > Studying the pseudocode > Dry running using the pseudocode > Finally, looking at the C++ implementation.
+Most instructors allow pseudocode, so don’t panic if you can’t write complete code. In many cases, clear pseudocode + written explanation + small snippets are more than sufficient. Overall, this course is absolutely worth your time, but it demands effort and smart preparation. Study hard and study strategically for this one.
+
 🔗 Useful Youtube Playlists:
 - [Design & Analysis of Algorithms by Gate Smashers](https://www.youtube.com/watch?v=u8JZ9gU5o4g&list=PLxCzCOWd7aiHcmS4i14bI0VrMbZTUvlTa)
 - [Algorithms by Abdul Bari](https://www.youtube.com/watch?v=0IAPZzGSbME&list=PLDN4rrl48XKpZkf03iYFl-O29szjTrs_O)
-
-🔗 Resources:
-
-🔗 Lab:
-
-🔗 Google Drives:
-
-🔗 Full courses:
+- [Greedy Algorithm Playlist by Striver/takeUforward](https://www.youtube.com/playlist?list=PLgUwDviBIf0rF1w2Koyh78zafB0cz7tea)
+- [Dynamic Programming Playlist by Striver/takeUforward](https://youtube.com/playlist?list=PLgUwDviBIf0qUlt5H_kiKYaNSqJ81PMMY&si=i-t2ZSJQ44Qvga33)
+- [Graph Series Playlist by Striver/takeUforward](https://youtube.com/playlist?list=PLgUwDviBIf0rGEWe64KWas0Nryn7SCRWw&si=xbsp8aqhlTkjQf68)
 
 ---
 ### 📌 Computer Networks:
+Computer Networks may seem boring at first, but it is actually a very interesting course if you study it properly. The course itself is not difficult, provided you follow the right resources and stay consistent. The single best resource for this course is [James F. Kurose](https://youtube.com/@jimkurose?si=cJNO3IZdRG0sLLIR), who is the author of the book [Computer Networking: A Top-Down Approach](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/Computer%20Networks%20(Theory)/Books/James%20W.%20Kurose%20Computer%20Networking%208th%20Ed.pdf). His official [YouTube playlist](https://youtube.com/playlist?list=PLByK_3hwzY3Tysh-SY9MKZhMm9wIfNOas&feature=shared), based on the Top-Down Approach, is more than enough. The playlist covers every topic in detail, and you should follow it topic by topic without skipping anything. The course itself is not inherently hard, but if you have time, it is highly recommended to read the book as well. This is important because sometimes, especially in mids and finals, questions appear from corner cases—topics that are not fully covered in videos and sometimes not even emphasized by the instructor in class, yet still appear in exams. If not during mids, then at least read the book before finals. Overall, the course is easy if you:
+Follow the author’s playlist properly,
+Refer to the book when possible,
+Stay consistent with the topics.
+If you do these, it is more than enough to score well in the course.
+For the CN lab, focus on understanding the commands instead of memorizing them blindly. Try to score as many marks as possible in the mids, because the final exam is significantly more difficult and lengthy. In finals, you are expected to learn 30–40 router and switch commands, whereas the mid exam is comparatively very easy. So, use the mids as an opportunity to secure your score early. Make sure you practice on different network topologies. This is extremely important. Wireshark is also taught in this course. Many students initially think it involves hacking or advanced security concepts, but that’s not the case. The course mainly focuses on packet sniffing and using packet header information to analyze and extract details—nothing beyond that. For commands, you can use ChatGPT to understand the purpose and usage of each command. Honestly, it’s nearly impossible to remember all commands unless you understand why they are used. While practicing, always:
+Configure routers for each topic & Configure the opposite side of the network.
+This approach will make you comfortable with gateway concepts, which are frequently tested in exams. Overall, the lab becomes very challenging if you don’t practice on complex topologies. Regular hands-on practice is the key to making this lab manageable and scoring.
+
 🔗 Useful Youtube Playlists:
 - [Computer Networking Book Playlist](https://youtube.com/playlist?list=PLByK_3hwzY3Tysh-SY9MKZhMm9wIfNOas&feature=shared) - Videos for Chapter 1 to Chapter 9 (all chapters) of Jim Kurose's book, Computer Networking: A Top-Down Approach
 - [Computer Networks by Gate Smashers](https://www.youtube.com/watch?v=JFF2vJaN0Cw&list=PLxCzCOWd7aiGFBD2-2joCpWOLUrDLvVV_)
@@ -219,28 +234,40 @@ pata chale toh mujhe bhi bata dena pls
 🔗 Resources:
 - [Complete Computer Networks One-Shot](https://youtu.be/APVCgkqWcQ4?feature=shared) - by KnowledgeGate
 
-🔗 Lab:
-
-🔗 Google Drives:
-
-🔗 Full courses:
-
 ---
 ### 📌 Software Design & Analysis:
+SDA is an easy course if you have good photographic memory, especially for remembering the representations of different diagrams. The diagrams themselves are not difficult; the real challenge is remembering their representation rules. There is very little theory assessed in exams—most questions are scenario-based. Therefore, don’t rely only on memorizing representations; make sure to practice at least 2–3 scenarios for each diagram. Mid-1 mostly focuses on OOP concepts (including OOP pillars and class diagrams). However, after Mid-2, around 6–7 new UML representations are introduced, which you need to remember and practice. You won’t really need YouTube for this course. Your slides are more than enough. Also, don’t hesitate to ask your instructors to provide practice scenarios. If you’re still struggling to find good practice material, refer to [Ms. Rubab Manzar’s slides](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/tree/main/Software%20Design%20%26%20Analysis/Slides/Fall'25), where you’ll find at least three solved and unsolved questions after each topic, which are very helpful.
+The only topic that can cause real trouble is Design Patterns. For this, you can follow the [Design Patterns in OOP Playlist](https://youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc), which explains the concepts clearly. Overall, the course is relatively the easiest as compared to other courses in the [fifth semester](https://github.com/MuxammilSidd/FAST-KHI-Semester-5?tab=readme-ov-file#-how-to-crack-your-fifth-semester-at-fast-nuces). It is definitely marks-gaining, as long as you don’t take it for granted and practice consistently.
+
 🔗 Useful Youtube Playlists:
-
-🔗 Resources:
-
-🔗 Lab:
-
-🔗 Google Drives:
-
-🔗 Full courses:
+- [Design Patterns in OOP Playlist](https://youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc) - by Christopher Okhravi.
 
 ---
 
-### 📌 Operation Research:
-🔗 Useful Youtube Playlists:
+### 📌 Graph Theory:
+Graph Theory is one of the best electives I've opted for. It is extremely interesting, and you’ll often find yourself wanting to study it even in your free time. This course truly has the potential to make graphs your favorite data structure.
+The course is relatively easy as long as proofs are not heavily emphasized in exams. There are many algorithms, so make sure you learn them along with their names. Some questions are framed like “Prove this using Menger’s Theorem”, and if you haven’t memorized the names, you’ll be left wondering what the question is even asking. So, always associate algorithms and theorems with their proper names. The major drawback of this course is that there are very limited resources available on YouTube. You may find some lectures for the initial topics, but as the course progresses, YouTube becomes far less helpful. On the brighter side, the textbook is quite good and can be referred to for deeper understanding. However, the book should never be treated as a last-minute resort, so make sure you don’t miss classes. This course heavily depends on what your instructor emphasizes in lectures. Write down everything your instructor explains—you never know what detail might appear in an MCQ or a short question.
+Overall, this is an easy and marks-scoring course, but only if you follow the process properly and do not skip classes deliberately. The mids are usually quite lengthy, so it’s a good idea to solve at least one question of each type from the book beforehand to build confidence and speed!
+
+---
+
+### 📌 Fundamentals of Software Project Management:
+who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course.
+
+---
+
+### 📌 Recommender Systems:
+who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course.
+
+---
+
+### 📌 Web Programming:
+who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course.
+
+---
+
+### 📌 Operations Research:
+who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course, or [email me](mailto:k232001@nu.edu.pk) if you'd like.
 
 🔗 Projects:
 - [ORA](https://github.com/hassan11196/ORA) - Minimum Spanning Tree OR Project.
