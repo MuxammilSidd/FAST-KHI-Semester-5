@@ -236,7 +236,7 @@ This approach will make you comfortable with gateway concepts, which are frequen
 
 ---
 ### 📌 Software Design & Analysis:
-SDA is an easy course if you have good photographic memory, especially for remembering the representations of different diagrams. The diagrams themselves are not difficult; the real challenge is remembering their representation rules. There is very little theory assessed in exams—most questions are scenario-based. Therefore, don’t rely only on memorizing representations; make sure to practice at least 2–3 scenarios for each diagram. Mid-1 mostly focuses on OOP concepts (including OOP pillars and class diagrams). However, after Mid-2, around 6–7 new UML representations are introduced, which you need to remember and practice. You won’t really need YouTube for this course. Your slides are more than enough. Also, don’t hesitate to ask your instructors to provide practice scenarios. If you’re still struggling to find good practice material, refer to [Ms. Rubab Manzar’s slides](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/tree/main/Software%20Design%20%26%20Analysis/Slides/Fall'25), where you’ll find at least three solved and unsolved questions after each topic, which are very helpful.
+SDA is an easy course if you have good photographic memory, especially for remembering the representations of different diagrams. The diagrams themselves are not difficult; the real challenge is remembering their representation rules. There is very little theory assessed in exams—most questions are scenario-based. Therefore, don’t rely only on memorizing representations; make sure to practice at least 2–3 scenarios for each diagram. Mid-1 mostly focuses on OOP concepts (including OOP pillars and class diagrams). However, after Mid-2, around 6–7 new UML representations are introduced, which you need to remember and practice. You won’t really need YouTube for this course. Your slides are more than enough. Also, don’t hesitate to ask your instructors to provide practice scenarios. If you’re still struggling to find good practice material, refer to [Ms. Rubab Manzar’s slides](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/tree/main/Software%20Design%20%26%20Analysis/Slides/SDA%20Slides%20by%20Ms.%20Rubab), where you’ll find at least three solved and unsolved questions after each topic, which are very helpful.
 The only topic that can cause real trouble is Design Patterns. For this, you can follow the [Design Patterns in OOP Playlist](https://youtube.com/playlist?list=PLrhzvIcii6GNjpARdnO4ueTUAVR9eMBpc), which explains the concepts clearly. Overall, the course is relatively the easiest as compared to other courses in the [fifth semester](https://github.com/MuxammilSidd/FAST-KHI-Semester-5?tab=readme-ov-file#-how-to-crack-your-fifth-semester-at-fast-nuces). It is definitely marks-gaining, as long as you don’t take it for granted and practice consistently.
 
 🔗 Useful Youtube Playlists:
@@ -245,24 +245,22 @@ The only topic that can cause real trouble is Design Patterns. For this, you can
 ---
 
 ### 📌 Graph Theory:
-Graph Theory is one of the best electives I've opted for. It is extremely interesting, and you’ll often find yourself wanting to study it even in your free time. This course truly has the potential to make graphs your favorite data structure.
+Graph Theory is one of the best electives to opt for. It is extremely interesting, and you’ll often find yourself wanting to study it even in your free time. This course truly has the potential to make graphs your favorite data structure.
 The course is relatively easy as long as proofs are not heavily emphasized in exams. There are many algorithms, so make sure you learn them along with their names. Some questions are framed like “Prove this using Menger’s Theorem”, and if you haven’t memorized the names, you’ll be left wondering what the question is even asking. So, always associate algorithms and theorems with their proper names. The major drawback of this course is that there are very limited resources available on YouTube. You may find some lectures for the initial topics, but as the course progresses, YouTube becomes far less helpful. On the brighter side, the textbook is quite good and can be referred to for deeper understanding. However, the book should never be treated as a last-minute resort, so make sure you don’t miss classes. This course heavily depends on what your instructor emphasizes in lectures. Write down everything your instructor explains—you never know what detail might appear in an MCQ or a short question.
 Overall, this is an easy and marks-scoring course, but only if you follow the process properly and do not skip classes deliberately. The mids are usually quite lengthy, so it’s a good idea to solve at least one question of each type from the book beforehand to build confidence and speed!
 
 ---
 
 ### 📌 Fundamentals of Software Project Management:
-who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course.
+Hands-down this has been the hardest elective out of the 5 choices offered to Batch-23K (CS). It is definitely not as easy as it sounds or how the seniors had guided. The contents of the course are easy but they are extensive and the exams are unimaginably hard. No matter how well you'd have prepared, the exam would feel like you haven't studied at all. There are many topics especially in the beginning that conflict with [SDA](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/tree/main/Software%20Design%20%26%20Analysis), hence sometimes the course feels repetitive. 
 
 ---
 
 ### 📌 Recommender Systems:
-who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course.
 
 ---
 
 ### 📌 Web Programming:
-who even opted for this elective bruh 😭 hop over [here](https://github.com/MuxammilSidd/FAST-KHI-Semester-5/blob/main/CONTRIBUTING.md) if you can contribute any resources for this course.
 
 ---
 
