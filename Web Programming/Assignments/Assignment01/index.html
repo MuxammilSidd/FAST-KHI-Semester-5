@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Sales Management</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Car Sales Management</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#" data-page="dashboard">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="management">Car Management</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="sold">Sold Cars</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-page="settings">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mt-4">
+
+        <!-- Dashboard Page -->
+        <div id="page-dashboard" class="page">
+            <h2>Dashboard</h2>
+            <hr>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card text-white bg-primary mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Total Cars</h5>
+                            <p class="card-text display-6" id="total-cars">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-success mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Available Cars</h5>
+                            <p class="card-text display-6" id="available-cars">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card text-white bg-danger mb-3">
+                        <div class="card-body">
+                            <h5 class="card-title">Sold Cars</h5>
+                            <p class="card-text display-6" id="sold-cars-count">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h4>All Cars</h4>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Car Name</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                        <th>Model Year</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody id="dashboard-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Car Management Page -->
+        <div id="page-management" class="page d-none">
+            <h2>Car Management</h2>
+            <hr>
+
+            <!-- Add Car Form -->
+            <div class="card mb-4">
+                <div class="card-header">
+                    <h5 id="form-title">Add New Car</h5>
+                </div>
+                <div class="card-body">
+                    <form id="car-form">
+                        <input type="hidden" id="car-id">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="car-name" class="form-label">Car Name</label>
+                                <input type="text" class="form-control" id="car-name" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="car-company" class="form-label">Company</label>
+                                <input type="text" class="form-control" id="car-company" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="car-price" class="form-label">Price ($)</label>
+                                <input type="number" class="form-control" id="car-price" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="car-year" class="form-label">Model Year</label>
+                                <input type="number" class="form-control" id="car-year" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="form-submit-btn">Add Car</button>
+                        <button type="button" class="btn btn-secondary d-none" id="form-cancel-btn">Cancel</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Available Cars Table -->
+            <h4>Available Cars</h4>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Car Name</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                        <th>Model Year</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="management-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Sold Cars Page -->
+        <div id="page-sold" class="page d-none">
+            <h2>Sold Cars</h2>
+            <hr>
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Car Name</th>
+                        <th>Company</th>
+                        <th>Price</th>
+                        <th>Model Year</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="sold-table-body">
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Settings Page -->
+        <div id="page-settings" class="page d-none">
+            <h2>Settings</h2>
+            <hr>
+            <div class="card">
+                <div class="card-body">
+                    <h5>Showroom Name</h5>
+                    <div class="mb-3">
+                        <input type="text" class="form-control" id="showroom-name" placeholder="Enter showroom name">
+                    </div>
+                    <button class="btn btn-primary" id="save-settings-btn">Save Settings</button>
+                    <hr>
+                    <h5>Data Management</h5>
+                    <button class="btn btn-danger" id="clear-data-btn">Clear All Data</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
